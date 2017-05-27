@@ -27,15 +27,18 @@ public final class R {
         public static final int guide_3=0x7f020002;
         public static final int ic_launcher=0x7f020003;
         public static final int icon_150=0x7f020004;
-        public static final int splash_bg_newyear=0x7f020005;
-        public static final int splash_horse_newyear=0x7f020006;
+        public static final int shape_point_gray=0x7f020005;
+        public static final int shape_point_red=0x7f020006;
+        public static final int splash_bg_newyear=0x7f020007;
+        public static final int splash_horse_newyear=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f080005;
+        public static final int action_settings=0x7f080006;
         public static final int btn_start=0x7f080001;
-        public static final int image_view=0x7f080004;
+        public static final int image_view=0x7f080005;
+        public static final int iv_red_point=0x7f080003;
         public static final int ll_container=0x7f080002;
-        public static final int rl_root=0x7f080003;
+        public static final int rl_root=0x7f080004;
         public static final int vp_guide=0x7f080000;
     }
     public static final class layout {
