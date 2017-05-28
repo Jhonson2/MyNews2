@@ -2,15 +2,20 @@ package com.example.mynews;
 
 import java.util.ArrayList;
 
+import untils.PrefUntils;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -20,6 +25,7 @@ public class GuideActivity extends Activity {
 	private ViewPager mViewPage;
 	private LinearLayout llContainer;
 	private ImageView ivRedPoint;
+	private Button btnStart;
 
 	private ArrayList<ImageView> mImageViewList;// mImageViewList集合
 
@@ -39,6 +45,8 @@ public class GuideActivity extends Activity {
 		mViewPage = (ViewPager) findViewById(R.id.vp_guide);
 		llContainer = (LinearLayout) findViewById(R.id.ll_container);
 		ivRedPoint = (ImageView) findViewById(R.id.iv_red_point);
+		btnStart = (Button) findViewById(R.id.btn_start);
+
 		initData();
 
 		mViewPage.setAdapter(new GuideAdapter());// 设置数据
@@ -48,23 +56,29 @@ public class GuideActivity extends Activity {
 			@Override
 			public void onPageSelected(int position) {
 				// 某个页面被选中
-
+				//最后页面显示体验的按钮
+				if (position == mImageViewList.size() - 1) {
+					btnStart.setVisibility(View.VISIBLE);
+				} else {
+					btnStart.setVisibility(View.INVISIBLE);
+				}
 			}
 
 			@Override
 			public void onPageScrolled(int position, float positionOffset,
 					int positionOffsetPixels) {
 				// 当页面滑动过程中的回调 ————参数：当前位置 移动的偏 移量的百分比 移动偏移量的像素
-				System.out.println("当前位置" + position
-						+"移量的百分比"+positionOffset
-						+"移动偏移量的像素"+positionOffsetPixels);
-				
+				System.out.println("当前位置" + position + "移量的百分比"
+						+ positionOffset + "移动偏移量的像素" + positionOffsetPixels);
+
 				// 更新小红圆点的距离=两个小红点的间距*移动的偏 移量的百分比
-				int leftMargin=(int) (mPointDis *positionOffset)+mPointDis*position;//当前小红点的左边距
-				RelativeLayout.LayoutParams params=(LayoutParams) ivRedPoint.getLayoutParams();
-				
-				params.leftMargin=leftMargin;//修改左边距
-				ivRedPoint.setLayoutParams(params);//重新布置布局参数
+				int leftMargin = (int) (mPointDis * positionOffset) + mPointDis
+						* position;// 当前小红点的左边距
+				RelativeLayout.LayoutParams params = (LayoutParams) ivRedPoint
+						.getLayoutParams();
+
+				params.leftMargin = leftMargin;// 修改左边距
+				ivRedPoint.setLayoutParams(params);// 重新布置布局参数
 			}
 
 			@Override
@@ -91,15 +105,33 @@ public class GuideActivity extends Activity {
 					@Override
 					public void onGlobalLayout() {
 						// layout方法执行结束的回调
-						ivRedPoint.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-						//ivRedPoint.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-						
+						ivRedPoint.getViewTreeObserver()
+								.removeGlobalOnLayoutListener(this);
+						// ivRedPoint.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
 						mPointDis = llContainer.getChildAt(1).getLeft()
 								- llContainer.getChildAt(0).getLeft();
 
 						System.out.println("圆点距离" + mPointDis);
 					}
 				});
+		
+		//按钮点击事件
+		btnStart.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//更新sp,不是第一次进入
+				PrefUntils.setBoolean(getApplicationContext(), "is_first_enter", false);
+				
+				//跳转主页
+				Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+				startActivity(intent);
+				finish();
+				
+				
+			}
+		});
 
 	}
 
