@@ -125,6 +125,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class color {
         public static final int txt_guide_selector=0x7f080000;
+        public static final int txt_tab_selector=0x7f080001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -138,23 +139,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int btn_guide_selector=0x7f020000;
-        public static final int button_red_normal=0x7f020001;
-        public static final int button_red_pressed=0x7f020002;
-        public static final int guide_1=0x7f020003;
-        public static final int guide_2=0x7f020004;
-        public static final int guide_3=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int icon_150=0x7f020007;
-        public static final int shape_point_gray=0x7f020008;
-        public static final int shape_point_red=0x7f020009;
-        public static final int splash_bg_newyear=0x7f02000a;
-        public static final int splash_horse_newyear=0x7f02000b;
+        public static final int bottom_tab_bg=0x7f020000;
+        public static final int btn_guide_selector=0x7f020001;
+        public static final int button_red_normal=0x7f020002;
+        public static final int button_red_pressed=0x7f020003;
+        public static final int govaffairs=0x7f020004;
+        public static final int govaffairs_press=0x7f020005;
+        public static final int guide_1=0x7f020006;
+        public static final int guide_2=0x7f020007;
+        public static final int guide_3=0x7f020008;
+        public static final int home=0x7f020009;
+        public static final int home_press=0x7f02000a;
+        public static final int ic_launcher=0x7f02000b;
+        public static final int icon_150=0x7f02000c;
+        public static final int newscenter=0x7f02000d;
+        public static final int newscenter_press=0x7f02000e;
+        public static final int setting=0x7f02000f;
+        public static final int setting_press=0x7f020010;
+        public static final int shape_point_gray=0x7f020011;
+        public static final int shape_point_red=0x7f020012;
+        public static final int smartservice=0x7f020013;
+        public static final int smartservice_press=0x7f020014;
+        public static final int splash_bg_newyear=0x7f020015;
+        public static final int splash_horse_newyear=0x7f020016;
+        public static final int tab_gov_selector=0x7f020017;
+        public static final int tab_home_selector=0x7f020018;
+        public static final int tab_news_selector=0x7f020019;
+        public static final int tab_setting_selector=0x7f02001a;
+        public static final int tab_smart_selector=0x7f02001b;
     }
     public static final class id {
-        public static final int action_settings=0x7f040010;
+        public static final int action_settings=0x7f040015;
         public static final int btn_start=0x7f040007;
-        public static final int fl_left_menu=0x7f04000e;
+        public static final int fl_left_menu=0x7f040013;
         public static final int fl_main=0x7f04000a;
         public static final int fullscreen=0x7f040003;
         public static final int image_view=0x7f04000c;
@@ -163,11 +180,16 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ll_container=0x7f040008;
         public static final int margin=0x7f040004;
         public static final int none=0x7f040005;
+        public static final int rb_gov=0x7f040010;
+        public static final int rb_home=0x7f04000d;
+        public static final int rb_news=0x7f04000e;
+        public static final int rb_setting=0x7f040011;
+        public static final int rb_smart=0x7f04000f;
         public static final int right=0x7f040002;
         public static final int rl_root=0x7f04000b;
         public static final int selected_view=0x7f040000;
-        public static final int slidingmenumain=0x7f04000f;
-        public static final int textView1=0x7f04000d;
+        public static final int slidingmenumain=0x7f040014;
+        public static final int textView1=0x7f040012;
         public static final int vp_guide=0x7f040006;
     }
     public static final class layout {
@@ -192,11 +214,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme for API 11+. This theme completely replaces
@@ -215,6 +239,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        /**  Application theme. 
+         */
+        public static final int Bottom_Tab_Style=0x7f070002;
     }
     public static final class styleable {
         /** Attributes that can be used with a SlidingMenu.
